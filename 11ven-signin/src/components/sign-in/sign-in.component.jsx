@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import axios from 'axios';
 
 
 import FormInput from '../../components/form-input/form-input.components';
@@ -25,17 +26,23 @@ const SignIn = () => {
     
 
     const handleSubmit = event => {
-        console.log("submit");
-        console.log(email, password);
-        event.preventDefault();
 
+        axios.post('http://127.0.0.1:5000/login',
+        {
+            "email": formFields.email,
+            "password": formFields.password 
+        }
+        )
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+
+        console.log('Login')
         resetFormFields();
     };
 
     
     const handleChange = event => {
         const {name, value} = event.target;
-        console.log(name, value)
 
         setFormFields({ ...formFields, [name]: value });
     };
