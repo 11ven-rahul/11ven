@@ -1,15 +1,21 @@
 .sign-in {
   margin-top: 60px;
-  width: 450px;
+  width: auto;
   display: flex;
   flex-direction: column;
-
+  background-color: white;
+  
   h2 {
+    font-size:large;
+    color: #1ba94c;
+    text-align: center;
     margin: 10px 0;
   }
 
   .buttons-container {
+    padding-bottom:0px;
+    padding-right: 35px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 }

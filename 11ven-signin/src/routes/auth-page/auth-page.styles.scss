@@ -1,6 +1,98 @@
 .auth-page {
   display: flex;
+  flex-direction: column;
   width: 900px;
-  justify-content: space-between;
   margin: 30px auto;
+  align-items: center;
+
+  .logo-container {
+    .logo {
+      width: 250px;
+      height: 75px
+    }
+  }
+
+  h2 {
+    color: #39424e;
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .auth-box {
+    background-color: white;
+    box-shadow: 0 8px 20px #E5E5E5;
+    width: 390px;
+
+    .box-nav-bar {
+      height: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .option {
+        font-size: 15px;
+        font-weight: bolder;
+        cursor: pointer;
+        text-align: center;
+        padding-top: 16px;
+        flex-grow: 1;
+        color: black;
+        background-color:#f9f9f9;
+        
+
+        &.active-signup {
+          background-color: white;
+          box-shadow: 0px 0px 15px #adadad;
+          clip-path: inset(0px -15px 0px 0px);
+        }
+
+        &.active-signin {
+          background-color: white;
+          box-shadow: 0px 0px 15px #adadad;
+          clip-path: inset(0px 0px 0px -15px);
+          
+          
+        }
+      }
+    }
+    .form-container {
+      z-index: 1;
+      
+    }
+  .social-login-label {
+    position: relative;
+    margin: 30px 0 20px;
+    color: #b7c9cc;
+    text-align: center;
+
+    .line {
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5px;
+      width: 315px;
+      border-top: 1px solid #b7c9cc ;
+      margin-left: 40px;
+      margin-right: 40px;
+      content: "";
+    }
+
+    .label-text {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 0 30px;
+      background: #fff;
+    }
+  }   
+  .google-button {
+    padding-left: 90px;
+    padding-bottom: 30px;
+  }
+    
+}
 }

@@ -1,12 +1,15 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 
 import FormInput from '../../components/form-input/form-input.components';
 import CustomButton from '../custom-button/custom-button.component';
+import { UserContext } from '../../contexts/user.context';
 
 
 import './sign-in.styles.scss';
+import { Link } from 'react-router-dom';
 
 const defaultFormFields = {
     email: '',
@@ -14,9 +17,12 @@ const defaultFormFields = {
 };
 
 const SignIn = () => {
+    const navigate = useNavigate()
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
+
+    const { setCurrentUser, currentUser } = useContext(UserContext);
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -25,18 +31,18 @@ const SignIn = () => {
 
     
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
 
-        axios.post('http://127.0.0.1:5000/login',
+        await axios.post('http://127.0.0.1:5000/login',
         {
             "email": formFields.email,
             "password": formFields.password 
         }
         )
-        .then(response => console.log(response.data))
+        .then(response => {console.log(response.data); setCurrentUser(response.data); localStorage.setItem("user_data",JSON.stringify(response.data));})   
         .catch(error => console.log(error))
 
-        console.log('Login')
+        navigate('/dashboard');
         resetFormFields();
     };
 
@@ -51,8 +57,7 @@ const SignIn = () => {
 
     return (
         <div className='sign-in'>
-            <h2>I already have an account</h2>
-            <span>Sign in with your Email and Password</span>
+            <h2>Login in with your Email and Password</h2>
 
             <form>
                 <FormInput
@@ -73,10 +78,7 @@ const SignIn = () => {
                     required 
                 />
                 <div className='buttons-container'>
-                    <CustomButton type="button" onClick={handleSubmit} > Sign In </CustomButton>
-                    <CustomButton type="button" isGoogleSignIn onClick={handleSubmit}> 
-                        Sign In With Google 
-                    </CustomButton>
+                    <CustomButton type="button" onClick={handleSubmit} > Sign In </CustomButton> 
                 </div>
             </form>
         </div>

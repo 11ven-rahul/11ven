@@ -11,12 +11,11 @@ const defaultFormFields = {
   displayName: '',
   email: '',
   password: '',
-  confirmPassword: '',
 };
 
 const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { displayName, email, password, confirmPassword } = formFields;
+  const { displayName, email, password} = formFields;
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -24,18 +23,16 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
 
-    if(password !== confirmPassword){
-      alert('Passwords do not match');
-      return
-    }
 
-    axios.post('http://127.0.0.1:5000/signup',
+    await axios.post('http://127.0.0.1:5000/signup',
         {
             "displayName": formFields.displayName,
             "email": formFields.email,
             "password": formFields.password 
         }
     )
+
+    alert("Sign in with your account")
 
     console.log(JSON.stringify(formFields))
     resetFormFields()
@@ -50,11 +47,10 @@ const SignUp = () => {
 
   return (
     <div className='sign-up-container'>
-      <h2>Don't have an account?</h2>
-      <span>Sign up with your email and password</span>
+      <h2>Sign Up to create a new account</h2>
       <form>
         <FormInput
-          label='Display Name'
+          label='First & Last Name'
           type='text'
           required
           onChange={handleChange}
@@ -80,15 +76,10 @@ const SignUp = () => {
           value={password}
         />
 
-        <FormInput
-          label='Confirm Password'
-          type='password'
-          required
-          onChange={handleChange}
-          name='confirmPassword'
-          value={confirmPassword}
-        />
-        <CustomButton onClick={handleSubmit}>Sign Up</CustomButton>
+        <div className='buttons-container' >
+          <CustomButton onClick={handleSubmit}>Create a New Account</CustomButton>
+        </div>
+        
       </form>
     </div>
   );

@@ -1,0 +1,17 @@
+.landing-page-container {
+
+    margin: 10px  10px 10px 26.5%; 
+    // border: 1px solid black;
+
+    .heading1 {
+        font-size: 40px;
+        letter-spacing: -.013em;
+        color: #39424e;
+    }
+
+    .login-card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-start;
+    }
+}

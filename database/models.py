@@ -1,10 +1,7 @@
 from .db import db
 from flask_bcrypt import generate_password_hash, check_password_hash
 
-class Movie(db.Document):
-    name = db.StringField(required=True, unique=True)
-    casts = db.ListField(db.StringField(), required=True)
-    genres = db.ListField(db.StringField(), required=True)
+
 
 class User(db.Document):
     displayName = db.StringField(required=True)
