@@ -1,9 +1,10 @@
 from unicodedata import name
 from flask import request
-from database.models import User
+from database.models import User, User_profile
 from flask_restful import Resource
 from flask import Response, request
 from flask_jwt_extended import create_access_token
+from flask_cors import cross_origin
 import datetime
 
 
@@ -27,3 +28,12 @@ class LoginApi(Resource):
    expires = datetime.timedelta(days=1)
    access_token = create_access_token(identity=str(user.id), expires_delta=expires)
    return {'token': access_token, 'name': user.displayName}, 200
+
+class UserProfileApi(Resource):
+  def post(self):
+    body = request.get_json()
+    print(body)
+    user_data = User_profile(**body)
+    user_data.save()
+    return 200
+

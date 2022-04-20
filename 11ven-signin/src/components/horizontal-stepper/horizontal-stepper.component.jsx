@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 
 import { One, Two, Three, Four } from '../profile-form-one/profile-form-one.component';
 import CustomStepIcon from '../custom-step-icon/custom-step-icon.component';
@@ -19,6 +20,22 @@ const defaultFormFields = {
   countryDetails: '',
   cityDetails: '',
   contactInfo: '',
+  about: '',
+
+  schoolName: '',
+  degreeName: '',
+  fieldOfStudy: '',
+  schoolStartDate: '',
+  schoolEndDate: '',
+  grade: '',
+
+  title: '',
+  employmentType: '',
+  companyName: '',
+  companylocation: '',
+  companyStartDate: '',
+  companyEndDate: '',
+  industryName: '',
 }
 
 export default function HorizontalLinearStepper() {
@@ -26,6 +43,10 @@ export default function HorizontalLinearStepper() {
   const [skipped, setSkipped] = React.useState(new Set());
 
   const [formFields, setFormFields] = React.useState(defaultFormFields);
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
   
 
   const handleChange = event => {
@@ -54,6 +75,15 @@ export default function HorizontalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
   };
+
+  const handleFinish = async (event) => {
+    console.log(JSON.stringify(formFields))
+    axios.post('http://127.0.0.1:5000/userprofile', JSON.stringify(formFields))
+    .then(res => console.log(res))
+    .catch(error => console.log(error));
+
+    resetFormFields();
+  }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -113,9 +143,9 @@ export default function HorizontalLinearStepper() {
                 {
                   0: <One formFields={formFields} handleChange={handleChange} />,
 
-                  1: <Two />,
+                  1: <Two formFields={formFields} handleChange={handleChange} />,
 
-                  2: <Three />,
+                  2: <Three formFields={formFields} handleChange={handleChange} />,
 
                   3: <Four />,
                 }[activeStep]
@@ -135,7 +165,7 @@ export default function HorizontalLinearStepper() {
                 </CustomButton>
               )}
 
-              <CustomButton onClick={handleNext}>
+              <CustomButton onClick={activeStep === steps.length - 1 ? handleFinish : handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </CustomButton>
             </Box>
