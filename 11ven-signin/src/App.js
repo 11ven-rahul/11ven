@@ -8,6 +8,7 @@ import Navigation from './routes/navigation/navigation.component';
 import AuthPage from './routes/auth-page/auth-page.component';
 import LandingPage from './routes/landing-page/landing-page.component';
 import Dashboard from './routes/dashboard/dashboard.component';
+import UserProfile from './routes/user-profile/user-profile.component';
 import axios from 'axios';
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
         <Route path='/' element={<LandingPage/>}/>
         <Route path='authpage' element={<AuthPage />} />
         <Route path='dashboard' element={<Dashboard />} />
+        <Route path='userprofile' element={<UserProfile />} />
       </Route>
     </Routes>
   )
