@@ -13,7 +13,8 @@ export const One = ({ formFields, handleChange }) => {
         <div className='profile-forms-container'>
             <h2>Personal Details</h2>
              
-            <div className='form'>
+            
+            <form className='form'>
                 <FormInputProfile
                     name='firstName' 
                     type="text" 
@@ -65,8 +66,10 @@ export const One = ({ formFields, handleChange }) => {
                         rows={5}>
                     </textarea>
                 </div>
-            </div>
+            </form>
+                
         </div>
+       
           
     )
 };
@@ -98,6 +101,7 @@ export const Four = () => {
     return (
         <div className='profile-forms-container'>
             <h2>Certifications Related Details</h2>
+
         </div>  
     )
 };

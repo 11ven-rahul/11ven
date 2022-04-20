@@ -9,7 +9,7 @@ const EmploymentForm = ({ formFields, handleChange }) => {
     return (
         <div className='profile-forms-container'>
             <h2>Employment Details</h2>
-            <div className='form'> 
+            <form className='form'> 
                 <FormInputProfile
                     name='title' 
                     type="text" 
@@ -72,7 +72,7 @@ const EmploymentForm = ({ formFields, handleChange }) => {
                     value={industryName} 
                     required 
                 /> 
-            </div>  
+            </form>  
         </div>
     )
 };

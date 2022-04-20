@@ -8,7 +8,7 @@ const EducationForm = ({ formFields, handleChange }) => {
     return (
         <div className='profile-forms-container'>
             <h2>Education Details</h2>
-            <div className='form'> 
+            <form className='form'> 
                 <FormInputProfile
                     name='schoolName' 
                     type="text" 
@@ -64,7 +64,7 @@ const EducationForm = ({ formFields, handleChange }) => {
                     value={schoolEndDate} 
                     required 
                 />
-            </div>  
+            </form>  
         </div>  
     )
 };
