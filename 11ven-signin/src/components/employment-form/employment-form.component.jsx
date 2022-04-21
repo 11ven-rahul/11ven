@@ -1,8 +1,31 @@
+import { useState } from 'react';
 import './employment-form.styles.scss';
 
 import FormInputProfile from '../form-input-profile/form-input-profile.component';
+import DragAndDrop from '../draganddrop/draganddrop.component';
+
 
 const EmploymentForm = ({ formFields, handleChange }) => {
+
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const onFileChange = event => { 
+        setSelectedFile(event.target.files[0]); 
+    }; 
+
+    const onFileUpload = () => { 
+        // Create an object of formData 
+        const formData = new FormData(); 
+       
+        // Update the formData object 
+        formData.append( 
+          "myFile", 
+          selectedFile, 
+          selectedFile.name 
+        ); 
+
+        console.log(selectedFile)
+    }
 
     const { title, employmentType, companyName, companylocation, companyStartDate, companyEndDate, industryName } = formFields;
 
@@ -71,7 +94,12 @@ const EmploymentForm = ({ formFields, handleChange }) => {
                     handleChange={handleChange} 
                     value={industryName} 
                     required 
-                /> 
+                />
+                <div className='upload-container'>
+                    <DragAndDrop />
+                </div>
+                
+            
             </form>  
         </div>
     )
