@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { One, Two, Three, Four } from '../profile-form-one/profile-form-one.component';
 import CustomStepIcon from '../custom-step-icon/custom-step-icon.component';
+import { message } from 'antd';
 
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -43,16 +44,45 @@ const defaultFormFields = {
   skillSelectedOption: [],
   certificateSelectedOption: '',
 
+  resumeUploadName: '',
+  imageUploadName: '',
+
 }
 
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+  const [fileList, setFileList] = React.useState([]);
 
   
 
   const [formFields, setFormFields] = React.useState(defaultFormFields);
+
+  const props = {
+    name: 'file',
+    multiple: true,
+    action: 'http://127.0.0.1:5000/upload',
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== 'uploading') {
+        
+      }
+      if (status === 'done') {
+        
+        message.success(`${info.file.name} file uploaded successfully.`);
+        setFormFields({...formFields, resumeUploadName: info.file.name})
+        console.log(formFields.resumeUploadName)
+        
+        
+      } else if (status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
+    },
+  };
   
 
   
@@ -173,6 +203,31 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  const onChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+    if(!undefined){
+      if(fileList[0]){
+        setFormFields({...formFields, imageUploadName: fileList[0].name})
+        console.log(fileList[0].name)
+      }
+    }
+  };
+
+  const onPreview = async file => {
+    let src = file.url;
+    if (!src) {
+      src = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file.originFileObj);
+        reader.onload = () => resolve(reader.result);
+      });
+    }
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow.document.write(image.outerHTML);
+  };
+
   return (
     <div>
       <Box sx={{ width: '950px'}}>
@@ -206,11 +261,11 @@ export default function HorizontalLinearStepper() {
             {<div className='form-container'>
               {
                 {
-                  0: <One formFields={formFields} handleChange={handleChange} />,
+                  0: <One formFields={formFields} handleChange={handleChange} fileList={fileList} onChange={onChange} onPreview={onPreview} />,
 
                   1: <Two formFields={formFields} handleChange={handleChange} handleAddNewEduField={handleAddNewEduField}  />,
 
-                  2: <Three formFields={formFields} handleChange={handleChange} handleAddNewEmpField={handleAddNewEmpField}  />,
+                  2: <Three formFields={formFields} handleChange={handleChange} handleAddNewEmpField={handleAddNewEmpField} props={props}  />,
 
                   3: <Four handleSkillChange={handleSkillChange} handleCertificateChange={handleCertificateChange} formFields={formFields}  />,
                 }[activeStep]

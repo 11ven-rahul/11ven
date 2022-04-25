@@ -6,6 +6,7 @@ from flask import Response, request
 from flask_jwt_extended import create_access_token
 from flask_cors import cross_origin
 import datetime
+import os
 
 
 class SignupApi(Resource):
@@ -40,6 +41,7 @@ class UserProfileApi(Resource):
 class Upload_File(Resource):
   def post(self):
     file = request.files['file']
-    print(file)
+    file.save(os.path.join('uploads', file.filename))
+    print(file.filename)
     return "done"
 

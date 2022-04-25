@@ -9,7 +9,7 @@ import FinalStepForm from '../final-step-form/final-step-form.component';
 import CustomButton from '../custom-button/custom-button.component';
 import Demo from '../avatar-upload/avatar-upload.component';
 
-export const One = ({ formFields, handleChange }) => {
+export const One = ({ formFields, handleChange, fileList, onChange, onPreview }) => {
 
     const {firstName, lastName, countryDetails, cityDetails, contactInfo, about} = formFields;
 
@@ -74,7 +74,7 @@ export const One = ({ formFields, handleChange }) => {
 
                 <div className='image-container'>
                     <p>Upload image for Avatar</p>
-                    <Demo />
+                    <Demo fileList={fileList} onChange={onChange} onPreview={onPreview} />
                 </div>
             </form>
                 
@@ -96,14 +96,14 @@ export const Two = ({ formFields, handleChange, handleAddNewEduField }) => {
     );
 };
 
-export const Three = ({ formFields, handleChange, handleAddNewEmpField }) => {
+export const Three = ({ formFields, handleChange, handleAddNewEmpField, props }) => {
 
     
 
 
     return (
         <div>
-            <EmploymentForm formFields={formFields} handleChange={handleChange} />
+            <EmploymentForm formFields={formFields} handleChange={handleChange} props={props} />
             <button onClick={handleAddNewEmpField}>Add another Employment field</button>
         </div>  
     )

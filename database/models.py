@@ -43,3 +43,6 @@ class User_profile(db.Document):
     educationDetails = db.ListField()
     employmentDetails = db.ListField()
 
+    resumeUploadName = db.StringField(required=False)
+    imageUploadName = db.StringField(required=False)
+
