@@ -17,6 +17,8 @@ const PillSelect = () => {
         <Select 
             isMulti
             options={options}
+            placeholder='Skills'
+            
         />
     )
 };

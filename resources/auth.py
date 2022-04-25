@@ -37,3 +37,9 @@ class UserProfileApi(Resource):
     user_data.save()
     return 200
 
+class Upload_File(Resource):
+  def post(self):
+    file = request.files['file']
+    print(file)
+    return "done"
+

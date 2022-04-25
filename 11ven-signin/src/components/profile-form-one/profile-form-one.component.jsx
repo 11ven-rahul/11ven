@@ -84,19 +84,19 @@ export const One = ({ formFields, handleChange }) => {
     )
 };
 
-export const Two = ({ formFields, handleChange }) => {
+export const Two = ({ formFields, handleChange, handleAddNewEduField }) => {
 
     return (
         <div>
             <EducationForm formFields={formFields} handleChange={handleChange} />
-            <button>Add another Education field</button> 
+            <button onClick={handleAddNewEduField}>Add another Education field</button> 
         </div>
         
         
     );
 };
 
-export const Three = ({ formFields, handleChange }) => {
+export const Three = ({ formFields, handleChange, handleAddNewEmpField }) => {
 
     
 
@@ -104,18 +104,18 @@ export const Three = ({ formFields, handleChange }) => {
     return (
         <div>
             <EmploymentForm formFields={formFields} handleChange={handleChange} />
-            <button>Add another Employment field</button>
+            <button onClick={handleAddNewEmpField}>Add another Employment field</button>
         </div>  
     )
 };
 
-export const Four = () => {
+export const Four = ({handleSkillChange, handleCertificateChange, formFields}) => {
 
     
     return (
         <div className='profile-forms-container'>
         <h2>Certifications Related Details</h2> 
-        <FinalStepForm />
+        <FinalStepForm handleSkillChange={handleSkillChange} handleCertificateChange={handleCertificateChange} formFields={formFields} />
         </div>  
     )
 };

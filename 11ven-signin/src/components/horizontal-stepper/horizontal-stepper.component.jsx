@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import CustomButton from '../custom-button/custom-button.component';
 
 
+
 const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
 const defaultFormFields = {
@@ -27,7 +28,8 @@ const defaultFormFields = {
   fieldOfStudy: '',
   schoolStartDate: '',
   schoolEndDate: '',
-  grade: '',
+  grade: 0,
+  educationDetails: [],
 
   title: '',
   employmentType: '',
@@ -36,13 +38,24 @@ const defaultFormFields = {
   companyStartDate: '',
   companyEndDate: '',
   industryName: '',
+  employmentDetails: [],
+
+  skillSelectedOption: [],
+  certificateSelectedOption: '',
+
 }
+
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
+  
+
   const [formFields, setFormFields] = React.useState(defaultFormFields);
+  
+
+  
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -53,7 +66,59 @@ export default function HorizontalLinearStepper() {
       const {name, value} = event.target;
 
       setFormFields({ ...formFields, [name]: value });
+ 
   };
+
+  const handleSkillChange = (e) => {
+    const valueArray = e.map(el => el.value)
+    setFormFields({ ...formFields, skillSelectedOption: valueArray  })
+    console.log(formFields)
+  }
+
+  const handleCertificateChange = certificateSelectedOption => {
+    const { value } = certificateSelectedOption;
+    setFormFields({ ...formFields, certificateSelectedOption: value  })
+    console.log(formFields)
+  }
+
+ 
+
+  const handleAddNewEduField = () => {
+    
+    const { schoolName, degreeName, fieldOfStudy, schoolStartDate, schoolEndDate, grade } = formFields
+    const edu = formFields.educationDetails
+    edu.push(
+      {
+        'schoolName': schoolName,
+        'degreeName': degreeName,
+        'fieldOfStudy': fieldOfStudy,
+        'schoolStartDate': schoolStartDate,
+        'schoolEndDate': schoolEndDate,
+        'grade': grade,
+       })
+    
+    setFormFields({...formFields, educationDetails: edu});
+    console.log(formFields)
+  }
+  const handleAddNewEmpField = () => {
+    
+    
+    const { title, employmentType, companyName, companylocation, companyStartDate, companyEndDate, industryName } = formFields
+    const emp = formFields.employmentDetails
+    emp.push(
+      {
+        'title': title,
+        'employmentType': employmentType,
+        'companyName': companyName,
+        'companylocation': companylocation,
+        'companyStartDate': companyStartDate,
+        'companyEndDate': companyEndDate,
+        'industryName': industryName,
+       })
+    
+    setFormFields({...formFields, employmentDetails: emp});
+    console.log(formFields)
+  }
 
   
 
@@ -78,7 +143,7 @@ export default function HorizontalLinearStepper() {
 
   const handleFinish = async (event) => {
     console.log(JSON.stringify(formFields))
-    axios.post('http://127.0.0.1:5000/userprofile', JSON.stringify(formFields))
+    axios.post('http://127.0.0.1:5000/userprofile', JSON.stringify(formFields), {headers: { 'Content-Type':'application/json'}})
     .then(res => console.log(res))
     .catch(error => console.log(error));
 
@@ -143,15 +208,15 @@ export default function HorizontalLinearStepper() {
                 {
                   0: <One formFields={formFields} handleChange={handleChange} />,
 
-                  1: <Two formFields={formFields} handleChange={handleChange} />,
+                  1: <Two formFields={formFields} handleChange={handleChange} handleAddNewEduField={handleAddNewEduField}  />,
 
-                  2: <Three formFields={formFields} handleChange={handleChange} />,
+                  2: <Three formFields={formFields} handleChange={handleChange} handleAddNewEmpField={handleAddNewEmpField}  />,
 
-                  3: <Four />,
+                  3: <Four handleSkillChange={handleSkillChange} handleCertificateChange={handleCertificateChange} formFields={formFields}  />,
                 }[activeStep]
               }
             </div>}
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, mt: "70px" }}>
               <CustomButton
                 disabled={activeStep === 0}
                 onClick={handleBack}
