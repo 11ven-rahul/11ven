@@ -1,0 +1,59 @@
+.stage-step {
+    .bundles-options-container {
+        margin-top: 40px;
+        .bundles {
+            padding: 18px;
+            background-color: #F4F6F8;
+            width: 250px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 10px;
+
+            h5 {
+                position: relative;
+                top: -15px;
+                left: 48px;
+            }
+            .core-choice {
+                height: 30px;
+                margin-bottom: 18px;
+                p {
+                    position: relative;
+                    top: -18px;
+                }
+            }
+
+            .add-ons-choice {
+                height: 30px;
+                p {
+                    position: relative;
+                    top: -18px;
+                }
+            }
+
+            .card-footer {
+                display: flex;
+                
+                .price-container {
+                    position: relative;
+                    bottom: 3px;
+                    left: 5px;
+
+                    h1 {
+                        color: #343A3F;
+                        margin-left: 3px;
+                    }
+
+                    p {
+                        font-size: 20px;
+                        font-weight: 700;
+                        position: relative;
+                        top: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

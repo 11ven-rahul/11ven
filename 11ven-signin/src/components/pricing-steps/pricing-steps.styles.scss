@@ -1,0 +1,75 @@
+.steps-container {
+    position: relative;
+    left: 100px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    // background-color: bisque;
+    padding: 20px;
+    color: #343A3F; 
+    margin-left: 60px;
+
+    .stage-step {
+      margin-top: 80px;
+      .name-step {
+        position: relative; 
+        background-color: #58C1F4;
+        width: 80px;
+        height: 30px;
+        text-align: center;
+        border-radius: 8px;
+
+        .text-step {
+          position: relative;
+          top: 3px;
+          color: white;
+          font-weight: 10px;
+        }
+      }
+      .stage-title {
+        font-size: 36px;
+        font-weight: 700;
+        
+      }
+      .includes-container {
+        display: flex;
+        justify-content:flex-start;
+        background-color: #E7F6FE;
+        padding-left: 12px;
+        height: 35px;
+        padding-top: 5px;
+        border-radius: 5px;
+        margin-top: 22px;
+
+        .core-options-container {
+          display: flex;
+          margin-left: 10px;
+          margin-top: 2px;
+          width: 100px;
+          height: 19px;
+          justify-content:flex-start;
+          font-size: 13px;
+
+          .icons-description {
+            margin-left: 4px;
+          }
+        }
+      }
+
+      .card-container {
+        display: flex;
+        cursor: pointer;
+      }
+      .test-number-slider {
+        display: flex;
+        position: relative;
+        top: 30px;
+
+        h2 {
+          font-weight: 700;
+          font-size: 1.6em;
+        }
+      }
+    }
+  }

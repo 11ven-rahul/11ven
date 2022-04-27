@@ -46,7 +46,7 @@ const AuthPage = () => {
                 <span className="label-text">or connect with</span>
             </div>
             <div className="google-button">
-                <CustomButton isGoogleSignIn>Sign in with Google</CustomButton>
+                <CustomButton buttonType="google">Sign in with Google</CustomButton>
             </div>
             
         </div>
