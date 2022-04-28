@@ -4,7 +4,8 @@ import './custom-button.styles.scss';
 
 const BUTTON_TYPES = {
     google: 'google-sign-in',
-    features: 'features'
+    features: 'features',
+    contact: 'contact',
 }
 const CustomButton = ({children, buttonType,  ...otherProps}) => (
     <button 

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 import './pricing-step-two.styles.scss';
+import FeatureCard from '../feature-card/feature-card.component';
 
 const featuresOptions = [
     {
@@ -35,6 +37,8 @@ const featuresOptions = [
 ]
 
 const PricingStepTwo = () => {
+    
+
     return (
         <div className='stage-step'>
             <div className='name-step'>
@@ -48,21 +52,7 @@ const PricingStepTwo = () => {
             <div className='features-container'>
             {
                 featuresOptions.map(ft => (
-                    <div key={ft.id} className='feature-card'>
-                        <h4>{ft.name}</h4>
-                        <div className='end-content'>
-                            {
-                                ft.type === "monthly" ?
-                                <p>&#8377;{ft.price}/mo</p>
-                                :
-                                <p>&#8377;{ft.price}</p>
-                            }
-                            <CustomButton  buttonType="features">
-                                <span className='feature-text'>Add</span>
-                            </CustomButton>
-                        </div> 
-                    </div>
-                    
+                    <FeatureCard key={ft.id} ft={ft} />
                 ))
             }
             </div>

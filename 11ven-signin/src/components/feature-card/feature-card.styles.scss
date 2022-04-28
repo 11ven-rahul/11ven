@@ -1,0 +1,58 @@
+.feature-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #F4F6F8;
+    padding: 6px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    
+    &.added {
+        background-color: white;
+    }
+
+    h4 {
+        position: relative;
+        top: 6px;
+    }
+    .end-content{
+
+        display: flex;
+        justify-content: space-between;
+        
+        p {
+            position: relative;
+            margin-right: 25px;
+            top: 6px;
+        }
+
+        .toggle-add-box {
+            display: flex;
+            text-align: center;
+            position: relative;
+            right: 14px;
+            top: 5px;
+            width: 67px;
+            height: 30px;
+            cursor: pointer;
+
+            .tick-icon {
+                position: relative;
+                bottom: 1px;
+                height: 26px;
+            }
+
+            .tick-added {
+                position: relative;
+                top: 5px;
+                right: 3px;
+                font-family: sans-serif;
+                font-size: 0.85em;
+                font-weight: 700;
+                color: #34A853;
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+    
+}

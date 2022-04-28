@@ -7,4 +7,9 @@
     border-radius: 8px;
     text-align: center;
     padding-top: 35px;
+
+    &.selected {
+        background-color: white;
+        border: 3px solid green;
+    }
 }

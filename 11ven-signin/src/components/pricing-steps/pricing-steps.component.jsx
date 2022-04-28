@@ -5,10 +5,11 @@ import './pricing-steps.styles.scss';
 import PricingStepOne from '../pricing-step-one/pricing-step-one.component';
 import PricingStepTwo from '../pricing-step-two/pricing-step-two.component';
 import PricingStepThree from '../pricing-step-three/pricing-step-three.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 
 const PricingSteps = ({ sliderValue, handleSliderChange }) => {
-    const [coreOptionSelected, setCoreOptionSelected] = useState("entryLevel");
+    
     const [packageTypeSelected, setPackageTypeSelected] = useState("intern");
 
     return (
@@ -17,6 +18,18 @@ const PricingSteps = ({ sliderValue, handleSliderChange }) => {
             <br />
             <PricingStepTwo />
             <br />
+            <div  className='contact-us-container'>
+                <div className='contact-text'>
+                    <h1 style={{ fontWeight: "800", fontSize: "40px" }}>Need Help</h1>
+                    <p style={{textAlign: "center"}}>Our team is on standby waiting to assist you with any <br />
+                        questions you may have.
+                    </p>
+                    <div className='contact-button-container'>
+                    <CustomButton buttonType="contact"><span className='feature-text'>Contact Us</span></CustomButton>
+                    </div>
+                    
+                </div>  
+            </div>
             <PricingStepThree />
             </div>
     )

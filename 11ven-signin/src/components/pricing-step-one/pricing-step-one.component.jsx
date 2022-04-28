@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import './pricing-step-one.styles.scss';
 
 import OptionsCard from '../options-card/options-card.component';
@@ -25,6 +27,10 @@ const coreOptions = [
 ]
 
 const PricingStepOne = ({ sliderValue, handleSliderChange }) => {
+
+    const [coreOptionSelected, setCoreOptionSelected] = useState();
+    
+    
     return (
         <div className='stage-step'>
             <div className='name-step'>
@@ -53,7 +59,7 @@ const PricingStepOne = ({ sliderValue, handleSliderChange }) => {
             <div className='card-container'>
             {
                 coreOptions.map(opt => (
-                    <OptionsCard key={opt.id} opt={opt} />
+                    <OptionsCard coreOptionSelected={coreOptionSelected} setCoreOptionSelected={setCoreOptionSelected} key={opt.id} opt={opt} />
                 ))
             }
             </div>

@@ -10,6 +10,37 @@
     color: #343A3F; 
     margin-left: 60px;
 
+    .contact-us-container {
+      width: 100%;
+      height: 100%;
+      background-image: url('../../assets/bulidings.jpg');
+      background-position: centre;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      border-radius: 4px;
+
+      .contact-text{
+        h1{
+          color: white;
+          position: relative;
+          top: 20px;
+          left: 60px;
+        }
+
+        p {
+          color: white;
+        }
+
+        .contact-button-container {
+          position: relative;
+          left: 140px;
+          
+        }
+      }
+      
+    }
+
     .stage-step {
       margin-top: 80px;
       .name-step {

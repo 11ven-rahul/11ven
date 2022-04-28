@@ -5,8 +5,8 @@ const Slider = ({sliderValue, handleSliderChange}) => {
         <div className="slidecontainer">
             <input 
                 type="range" 
-                min="0" 
-                max="10" 
+                min="1" 
+                max="3" 
                 value={sliderValue} 
                 className="slider" 
                 id="myRange" 

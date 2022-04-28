@@ -48,4 +48,26 @@
       bottom: 12px;
     }
   }
+
+  &.contact {
+    padding: 0px;
+    position: relative;
+    top: 6px;
+    right: 35px;
+    height: 30px;
+    width: 120px;
+    font-size: 11px;
+    background-color: #68C5F3;
+    box-shadow: none;
+
+    .feature-text {
+      font-size: 13px;
+      text-align: center;
+      width: 150px;
+      height: 50px;
+      position: relative;
+      bottom: -11px;
+      line-height: 10px;
+    }
+  }
 }
