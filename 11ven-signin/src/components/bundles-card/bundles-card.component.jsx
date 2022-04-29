@@ -14,10 +14,13 @@ const BundlesCard = ({bundle}) => {
 
     return (
         <div className='bundles'>
-            <h2 style={{fontWeight: "450", margin: "0px 65px"}}> {name} </h2> 
-            <h5 style={{fontWeight: "400", fontSize: "10px", color: "#BAC2C9"}}>Bundle Includes:</h5> 
+            <div className='bundle-head'>
+                <h2 style={{fontWeight: "450", marginLeft: "15px"}}> {name} </h2> 
+                <h5 style={{fontWeight: "400", fontSize: "10px", color: "#BAC2C9"}}>Bundle Includes:</h5> 
+            </div>
+            
             <div className='core-choice'>
-                <h2 style={{fontWeight: "500",fontSize: "13px", position: "relative", top: "-10px"}}>Tests {tests}</h2>
+                <h2 style={{fontWeight: "500",fontSize: "13px", position: "relative", top: "-10px"}}>Tests:{tests}</h2>
             </div>
             <div className='add-ons-choice'>
                 <h2 style={{fontWeight: "500",fontSize: "13px", position: "relative", top: "-10px"}}>Add ons</h2>

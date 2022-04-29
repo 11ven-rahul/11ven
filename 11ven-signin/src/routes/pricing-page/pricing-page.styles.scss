@@ -1,10 +1,50 @@
 .pricing-page-container {
-    width: 95%;
-    margin: auto;
-    background-color: white;
-    display:flex;
-    justify-content:space-between;
-    height: auto;
 
+    display: flex;
+    flex-direction: column;
+
+    .steps-cart-container {
+        width: 95%;
+        margin: auto;
+        background-color: white;
+        display:flex;
+        justify-content:space-between;
+        height: auto;
+    }
+    
+
+    .pricing-page-banner {
+        width: 100%;
+        height: 275px;
+        background-color: #F6F8FA;
+        display: flex;
+        justify-content: center;
+
+        .banner-text {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 40px;
+            left: 35px;
+            height: 130px;
+            width: 850px;
+            h1 {
+                
+                color: #333B3F;
+                font-size: 50px;
+                font-weight: 700;
+                margin: 0px 0px ;
+            }
+
+            P {
+                position: relative;
+                left: 120px;
+                color: #333B3F;
+                font-size: 22px;
+            }
+        }
+        
+        
+    }
     
 }

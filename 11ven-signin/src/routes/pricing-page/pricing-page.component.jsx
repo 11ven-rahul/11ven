@@ -18,8 +18,17 @@ const PricingPage = () => {
     }
     return (
         <div className="pricing-page-container">
-            <PricingSteps sliderValue={sliderValue} handleSliderChange={handleSliderChange} />
-            <PricingCart />
+            <div className='pricing-page-banner'>
+                <div className='banner-text'>
+                    <h1>Validation and industry exposure at an affordable price, only at PSC.</h1>
+                    <p>Choose from a plethora of offerings. Pay for what you need.</p>
+                </div>
+            </div>
+            <div className='steps-cart-container'>
+                <PricingSteps sliderValue={sliderValue} handleSliderChange={handleSliderChange} />
+                <PricingCart />
+            </div>
+            
         </div>
     );
 }

@@ -1,9 +1,10 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import './feature-card.styles.scss';
 import { CartContext } from '../../contexts/cart.context';
 import CustomButton from '../custom-button/custom-button.component';
 
 import {ReactComponent as TickIcon} from '../../assets/tick.svg';
+import {ReactComponent as FeaturesIcon} from '../../assets/features.svg';
 
 const FeatureCard = ({ft}) => {
 
@@ -20,7 +21,17 @@ const FeatureCard = ({ft}) => {
     
     return (
         <div key={ft.id} className={addedItems.some(ai => ft.id === ai) ? 'feature-card added' : 'feature-card'}>
-            <h4>{ft.name}</h4>
+            <div className='feature-start'>
+                <div className='ft-icon-container'>
+                    <FeaturesIcon className='ft-icon' />
+                </div>
+                <div className='name-st-box'>
+                    <h4>{ft.name}</h4>
+                    <p>{ft.sub_text}</p>
+                </div>
+            </div>
+            
+            
             <div className='end-content'>  
                 <p>&#8377;{ft.price}</p>
                 {addedItems.some(ai => ft.id === ai) ? 

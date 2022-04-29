@@ -1,7 +1,7 @@
 .steps-container {
     position: relative;
     left: 100px;
-    width: 600px;
+    width: 630px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@
           display: flex;
           margin-left: 10px;
           margin-top: 2px;
-          width: 100px;
+          width: auto;
           height: 19px;
           justify-content:flex-start;
           font-size: 13px;
@@ -106,7 +106,7 @@
           p {
             position: relative;
             top: -15px;
-            font-size: 12px;
+            font-size: 15px;
           }
         }
         

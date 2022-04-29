@@ -14,11 +14,25 @@
             border-radius: 10px;
             margin-bottom: 20px;
 
-            h5 {
+            .bundle-head {
+                width: auto;
                 position: relative;
+                left: 15px;
+
+                h2 {
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                    width: auto;
+                }
+
+                h5 {
+                    position: relative;
                     top: -6px;
-                    left: 74px;
+                    left: 16px;
+                }
             }
+
+            
             .core-choice {
                 height: 30px;
                 margin-bottom: 18px;
@@ -48,7 +62,7 @@
 
             .card-footer {
                 display: flex;
-                margin-top: 60px;
+                margin-top: 85px;
                 
                 .price-container {
                     position: relative;
