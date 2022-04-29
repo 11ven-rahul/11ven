@@ -31,13 +31,24 @@ const addCartItem = (cartItems, productToAdd, setAddedItems) => {
     
 
 
-    return [...cartItems, { ...productToAdd}]
+    return [ { ...productToAdd}, ...cartItems]
 };
 
 const clearCartItem = (cartItems, cartItemToClear, setAddedItems) => cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id );
 
+const addBundleItems =(bundleToAdd, setSliderValue) => {
+    setSliderValue(bundleToAdd.tests);
+    return bundleToAdd.addons
+}
+
 export const CartContext = createContext({
-    cartItems: [],
+    cartItems: [{
+        id: 1,
+        name: "Base Camp",
+        description: "For entry level tests",
+        price: 2250,
+        added: false,
+    }],
     addItemToCart: () => {},
     clearItemFromCart: () => {},
     cartTotal: 0,
@@ -48,7 +59,13 @@ export const CartContext = createContext({
 });
 
 export const CartContextProvider = ({children}) => {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState([{
+        id: 1,
+        name: "Base Camp",
+        description: "For entry level tests",
+        price: 2250,
+        added: false,
+    }]);
     const [cartTotal, setCartTotal] = useState(0);
     const [sliderValue, setSliderValue] = useState(1);
     const [addedItems, setAddedItems] = useState([]);
@@ -79,6 +96,11 @@ export const CartContextProvider = ({children}) => {
         setCartItems(clearCartItem(cartItems, cartItemToClear, setAddedItems));
     };
 
+    const addBundleToCart = (bundleToAdd) => {
+        setCartItems([]);
+        setCartItems(addBundleItems(bundleToAdd, setSliderValue))
+    };
+
     const value = { 
         cartItems, 
         cartTotal, 
@@ -87,7 +109,8 @@ export const CartContextProvider = ({children}) => {
         setSliderValue, 
         clearItemFromCart,
         addedItems,
-        setAddedItems, 
+        setAddedItems,
+        addBundleToCart, 
     }
 
     return (

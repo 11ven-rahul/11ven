@@ -2,6 +2,7 @@
     position: relative;
     left: 100px;
     width: 600px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -12,7 +13,7 @@
 
     .contact-us-container {
       width: 100%;
-      height: 100%;
+      height: 220px;
       background-image: url('../../assets/bulidings.jpg');
       background-position: centre;
       background-size: cover;

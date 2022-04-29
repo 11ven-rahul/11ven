@@ -6,31 +6,31 @@ const featuresOptions = [
         id: 4,
         name: "PSC Hard Copy Certificate(Soft Bind)",
         price: 800,
-        added: false,
     },
     {
         id: 5,
         name: "PSC Framed Certificate",
         price: 1600,
-        added: false,
     },
     {
         id: 6,
         name: "Placement Support",
         price: 4000,
-        added: false,
     },
     {
         id: 7,
         name: "Professional Training/Learn a new Skill",
         price: 5000,
-        added: false,
     },
     {
         id: 8,
         name: "Career Counselling",
         price: 5000,
-        added: false,
+    },
+    {
+        id: 9,
+        name: "Knowledge Bank",
+        price: 2500,
     },
 ]
 

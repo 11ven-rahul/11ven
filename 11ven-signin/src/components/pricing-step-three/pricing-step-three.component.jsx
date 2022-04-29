@@ -1,6 +1,95 @@
-import { Divider } from 'antd';
-import CustomButton from '../custom-button/custom-button.component';
+import BundlesCard from '../bundles-card/bundles-card.component';
 import './pricing-step-three.styles.scss';
+
+const Bundles = [
+    {
+        id: "b1",
+        name: "Essentials",
+        tests: 3,
+        price: 11550,
+        addons: [
+            {
+                id: 1,
+                name: "Base Camp",
+                description: "For entry level tests",
+                price: 2250,
+            },
+            {
+                id: 4,
+                name: "PSC Hard Copy Certificate(Soft Bind)",
+                price: 800,
+            },
+            {
+                id: 6,
+                name: "Placement Support",
+                price: 4000,
+            },
+        ]
+    },
+    {
+        id: "b2",
+        name: "Impact",
+        tests: 3,
+        price: 17350,
+        addons: [
+            {
+                id: 1,
+                name: "Base Camp",
+                description: "For entry level tests",
+                price: 2250,
+            },
+            {
+                id: 5,
+                name: "PSC Framed Certificate",
+                price: 1600,
+            },
+            {
+                id: 6,
+                name: "Placement Support",
+                price: 4000,
+            },
+            {
+                id: 7,
+                name: "Professional Training/Learn a new Skill",
+                price: 5000,
+            },
+        ]
+    },
+    {
+        id: "b3",
+        name: "Complete",
+        tests: 3,
+        price: 19850,
+        addons: [
+            {
+                id: 1,
+                name: "Base Camp",
+                description: "For entry level tests",
+                price: 2250,
+            },
+            {
+                id: 5,
+                name: "PSC Framed Certificate",
+                price: 1600,
+            },
+            {
+                id: 6,
+                name: "Placement Support",
+                price: 4000,
+            },
+            {
+                id: 8,
+                name: "Career Counselling",
+                price: 5000,
+            },
+            {
+                id: 9,
+                name: "Knowledge Bank",
+                price: 2500,
+            },
+        ]
+    }
+]
 
 const PricingStepThree = () => {
     return (
@@ -14,25 +103,9 @@ const PricingStepThree = () => {
                 company? Consider our most poular ones.
             </h4>
             <div className='bundles-options-container'>
-                <div className='bundles'>
-                    <h2 style={{fontWeight: "450", marginLeft: "40px"}}>Essentials</h2> 
-                    <h5 style={{fontWeight: "400", fontSize: "10px", color: "#BAC2C9"}}>Bundle Includes:</h5> 
-                    <div className='core-choice'>
-                        <h2 style={{fontWeight: "500",fontSize: "13px", position: "relative", top: "-10px"}}>Entry Level 1</h2>
-                        <p style={{fontSize: "10px"}}>3 Tests</p>
-                    </div>
-                    <div className='add-ons-choice'>
-                        <h2 style={{fontWeight: "500",fontSize: "13px", position: "relative", top: "-10px"}}>Add ons</h2>
-                        <p style={{fontSize: "10px"}}>None</p>
-                    </div>
-                    <div className='card-footer'>
-                        <CustomButton buttonType="features">
-                            <span className='feature-text'>Start</span>
-                        </CustomButton>
-                        <span className='price-container' style={{display: "flex"}}><h1>&#8377;2250</h1><p>/mo</p></span>
-                    </div>
-                    
-                </div>
+            {
+                Bundles.map(bundle => <BundlesCard key={bundle.id} bundle={bundle} />)
+            }
             </div>
         </div>
     )

@@ -6,6 +6,7 @@ const BUTTON_TYPES = {
     google: 'google-sign-in',
     features: 'features',
     contact: 'contact',
+    pricecart: 'price-cart'
 }
 const CustomButton = ({children, buttonType,  ...otherProps}) => (
     <button 

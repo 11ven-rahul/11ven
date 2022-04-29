@@ -21,7 +21,7 @@ const PricingCart = () => {
             <p>Total Investment</p>
             <h1>&#8377;{cartTotal}</h1>
             <div className='buttons-container'>
-                <CustomButton>Start Free Trial</CustomButton>
+                <CustomButton buttonType='pricecart'>Start Free Trial</CustomButton>
             </div>
         </div>
     )

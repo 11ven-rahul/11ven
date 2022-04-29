@@ -17,20 +17,17 @@ const coreOptions = [
         name: "Base Camp",
         description: "For entry level tests",
         price: 2250,
-        added: false,
     },
     {   id: 2,
         name: "Pick Your Tools",
         description: "For Skill based tests",   
         price: 2250,
-        added: false,
     },
     {
         id: 3, 
         name: "Pick Your Destination",
         description: "For Company Based tests",
         price: 2250,
-        added: false,
     }
 ]
 
