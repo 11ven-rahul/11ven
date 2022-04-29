@@ -96,11 +96,19 @@
         display: flex;
         position: relative;
         top: 30px;
+        .price-display{
+          h2 {
+            font-weight: 700;
+            font-size: 1.6em;
+          }
 
-        h2 {
-          font-weight: 700;
-          font-size: 1.6em;
+          p {
+            position: relative;
+            top: -15px;
+            font-size: 12px;
+          }
         }
+        
       }
     }
   }

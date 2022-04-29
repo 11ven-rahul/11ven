@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+
+import { CartContext } from '../../contexts/cart.context';
 
 import './pricing-step-one.styles.scss';
 
@@ -12,24 +14,27 @@ import Slider from '../slider/slider.component';
 const coreOptions = [
     {
         id: 1,
-        name: "Entry Level",
+        name: "Base Camp",
         description: "For entry level tests",
+        price: 2250,
+        added: false,
     },
     {   id: 2,
-        name: "Skill Based",
+        name: "Pick Your Tools",
         description: "For Skill based tests",   
+        price: 2250,
+        added: false,
     },
     {
         id: 3, 
-        name: "Company Based",
-        description: "For Company Based tests"
+        name: "Pick Your Destination",
+        description: "For Company Based tests",
+        price: 2250,
+        added: false,
     }
 ]
 
 const PricingStepOne = ({ sliderValue, handleSliderChange }) => {
-
-    const [coreOptionSelected, setCoreOptionSelected] = useState();
-    
     
     return (
         <div className='stage-step'>
@@ -59,12 +64,15 @@ const PricingStepOne = ({ sliderValue, handleSliderChange }) => {
             <div className='card-container'>
             {
                 coreOptions.map(opt => (
-                    <OptionsCard coreOptionSelected={coreOptionSelected} setCoreOptionSelected={setCoreOptionSelected} key={opt.id} opt={opt} />
+                    <OptionsCard  key={opt.id} opt={opt} />
                 ))
             }
             </div>
             <div className='test-number-slider'>
-                <h2>Tests</h2>
+                <div className='price-display'>
+                    <h2>Tests</h2>
+                    <p>&#8377;2250/test</p>
+                </div>
                 <Slider sliderValue={sliderValue} handleSliderChange={handleSliderChange} />
             </div>
         </div>

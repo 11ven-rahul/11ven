@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import './pricing-steps.styles.scss';
 
 import PricingStepOne from '../pricing-step-one/pricing-step-one.component';
@@ -10,7 +8,6 @@ import CustomButton from '../custom-button/custom-button.component';
 
 const PricingSteps = ({ sliderValue, handleSliderChange }) => {
     
-    const [packageTypeSelected, setPackageTypeSelected] = useState("intern");
 
     return (
         <div className='steps-container'>

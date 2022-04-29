@@ -1,43 +1,40 @@
-import { useState } from 'react';
-import CustomButton from '../custom-button/custom-button.component';
 import './pricing-step-two.styles.scss';
 import FeatureCard from '../feature-card/feature-card.component';
 
 const featuresOptions = [
     {
-        id: 1,
+        id: 4,
         name: "PSC Hard Copy Certificate(Soft Bind)",
         price: 800,
-        type: "one-time",
-    },
-    {
-        id: 2,
-        name: "PSC Framed Certificate",
-        price: 1600,
-        type: "one-time",
-    },
-    {
-        id: 3,
-        name: "Placement Support",
-        price: 4000,
-        type: "monthly",
-    },
-    {
-        id: 4,
-        name: "Professional Training/Learn a new Skill",
-        price: 5000,
-        type: "monthly",
+        added: false,
     },
     {
         id: 5,
+        name: "PSC Framed Certificate",
+        price: 1600,
+        added: false,
+    },
+    {
+        id: 6,
+        name: "Placement Support",
+        price: 4000,
+        added: false,
+    },
+    {
+        id: 7,
+        name: "Professional Training/Learn a new Skill",
+        price: 5000,
+        added: false,
+    },
+    {
+        id: 8,
         name: "Career Counselling",
         price: 5000,
-        type: "monthly",
+        added: false,
     },
 ]
 
 const PricingStepTwo = () => {
-    
 
     return (
         <div className='stage-step'>

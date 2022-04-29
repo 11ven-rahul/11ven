@@ -2,7 +2,7 @@ import './final-step-form.styles.scss';
 
 import { useState, useEffect } from 'react';
 
-import PillSelect from '../pill-select/pill-select.component';
+
 import Select from 'react-select';
 
 
