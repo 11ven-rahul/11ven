@@ -46,3 +46,8 @@ class User_profile(db.Document):
     resumeUploadName = db.StringField(required=False)
     imageUploadName = db.StringField(required=False)
 
+class Contact_Us(db.Document):
+    email = db.StringField(required=False)
+    helpOption = db.StringField(required=False)
+    otherHelp = db.StringField(required=False)
+

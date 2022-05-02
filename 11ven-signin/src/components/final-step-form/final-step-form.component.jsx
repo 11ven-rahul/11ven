@@ -52,9 +52,8 @@ const FinalStepForm = ({handleSkillChange, handleCertificateChange, formFields})
                 className='select' 
                 options={options} 
                 placeholder="Certification"
-                value={options1.find(obj => obj.value === certificateSelectedOption)}
-                onChange={handleCertificateChange}
-                
+                value={options.find(obj => obj.value === certificateSelectedOption)}
+                onChange={handleCertificateChange} 
             />
         </div>
     )

@@ -4,11 +4,12 @@ import PricingStepOne from '../pricing-step-one/pricing-step-one.component';
 import PricingStepTwo from '../pricing-step-two/pricing-step-two.component';
 import PricingStepThree from '../pricing-step-three/pricing-step-three.component';
 import CustomButton from '../custom-button/custom-button.component';
+import { useNavigate } from 'react-router-dom'
 
 
 const PricingSteps = ({ sliderValue, handleSliderChange }) => {
     
-
+    const navigate = useNavigate()
     return (
         <div className='steps-container'>
             <PricingStepOne sliderValue={sliderValue} handleSliderChange={handleSliderChange} />
@@ -22,7 +23,7 @@ const PricingSteps = ({ sliderValue, handleSliderChange }) => {
                         questions you may have.
                     </p>
                     <div className='contact-button-container'>
-                    <CustomButton buttonType="contact"><span className='feature-text'>Contact Us</span></CustomButton>
+                    <CustomButton type="button" buttonType="contact" onClick={() => navigate('/contact')}><span className='feature-text'>Contact Us</span></CustomButton>
                     </div>
                     
                 </div>  

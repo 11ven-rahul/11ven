@@ -10,6 +10,7 @@ import LandingPage from './routes/landing-page/landing-page.component';
 import Dashboard from './routes/dashboard/dashboard.component';
 import UserProfile from './routes/user-profile/user-profile.component';
 import PricingPage from './routes/pricing-page/pricing-page.component';
+import Contact from './routes/contact/contact.component';
 import axios from 'axios';
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
         <Route path='userprofile' element={<UserProfile />} />
         <Route path='pricing' element={<PricingPage />} />
       </Route>
+      <Route path='contact' element={<Contact />} />
     </Routes>
   )
   
