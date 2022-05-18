@@ -87,7 +87,7 @@ const Contact = () => {
                         <div  className='contact-number-display'>
                             <p>Contact: India</p>
                             <a href='tel: +91 999999999'>
-                                <span style={{color: "#39424e"}}>+91 9945216424</span>
+                                <span style={{color: "#39424e"}}>+91 999999999</span>
                             </a>
                         </div>
                     </div>

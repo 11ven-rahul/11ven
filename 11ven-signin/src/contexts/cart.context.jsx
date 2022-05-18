@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 const addCartItem = (cartItems, productToAdd, setAddedItems) => {

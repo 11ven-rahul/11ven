@@ -1,16 +1,38 @@
 import './pricing-page.styles.scss';
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 
 import PricingCart from '../../components/pricing-cart/pricing-cart.component';
 
 import PricingSteps from '../../components/pricing-steps/pricing-steps.component';
+import axios from 'axios';
 
 
 const PricingPage = () => {
+    const {sliderValue, setSliderValue, cartItems} = useContext(CartContext)
 
-    const {sliderValue, setSliderValue} = useContext(CartContext)
+    useEffect(() => {
+        return () => { 
+            console.log(`{
+                'last_clicked_module': {
+                    'cartItems': ${cartItems},
+                    'sliderValue': ${sliderValue},
+                } 
+            }`);
+            axios.post('http://127.0.0.1:5000/user_interaction',
+            {
+                'last_clicked_module': {
+                    'cartItems': cartItems,
+                    'sliderValue': sliderValue,
+                } 
+            },
+            {
+                headers: { 'Authorization': `Bearer ${(JSON.parse(localStorage.getItem("user_data"))).token}` }
+            }
+            )
+            
+    }})
 
     const handleSliderChange = (e) => {
         setSliderValue(e.target.value)

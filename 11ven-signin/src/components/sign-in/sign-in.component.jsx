@@ -41,7 +41,7 @@ const SignIn = () => {
         )
         .then(response => {console.log(response.data); setCurrentUser(response.data); localStorage.setItem("user_data",JSON.stringify(response.data));})   
         .catch(error => console.log(error))
-
+        console.log((JSON.parse(localStorage.getItem("user_data"))).token)
         navigate('/dashboard');
         resetFormFields();
     };
