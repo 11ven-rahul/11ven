@@ -1,5 +1,5 @@
 import './education-form.styles.scss';
-
+import { format } from "date-fns";
 import FormInputProfile from '../form-input-profile/form-input-profile.component';
 
 const EducationForm = ({ formFields, handleChange }) => {
@@ -61,6 +61,7 @@ const EducationForm = ({ formFields, handleChange }) => {
                     type="date" 
                     label="End Date"
                     handleChange={handleChange} 
+                    min={schoolStartDate}
                     value={schoolEndDate} 
                     required 
                 />

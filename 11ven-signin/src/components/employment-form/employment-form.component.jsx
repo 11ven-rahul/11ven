@@ -66,7 +66,8 @@ const EmploymentForm = ({ formFields, handleChange, props }) => {
                     name='companyEndDate' 
                     type="date" 
                     label="End Date"
-                    handleChange={handleChange} 
+                    handleChange={handleChange}
+                    min={companyStartDate} 
                     value={companyEndDate} 
                     required 
                 />

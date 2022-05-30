@@ -1,5 +1,6 @@
 import * as React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import { One, Two, Three, Four } from '../profile-form-one/profile-form-one.component';
 import CustomStepIcon from '../custom-step-icon/custom-step-icon.component';
@@ -54,6 +55,7 @@ export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [fileList, setFileList] = React.useState([]);
+  const navigate = useNavigate()
 
   
 
@@ -172,10 +174,19 @@ export default function HorizontalLinearStepper() {
   };
 
   const handleFinish = async (event) => {
+    handleAddNewEduField();
+    handleAddNewEmpField();
     console.log(JSON.stringify(formFields))
-    axios.post('http://127.0.0.1:5000/userprofile', JSON.stringify(formFields), {headers: { 'Content-Type':'application/json'}})
+    axios.post('http://127.0.0.1:5000/userprofile', JSON.stringify(formFields), {
+      headers: { 
+        'Content-Type':'application/json',
+        'Authorization': `Bearer ${(JSON.parse(localStorage.getItem("user_data"))).token}`
+      }
+    })
     .then(res => console.log(res))
     .catch(error => console.log(error));
+
+    navigate('/dashboard')
 
     resetFormFields();
   }

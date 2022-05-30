@@ -1,0 +1,83 @@
+.dashboard-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+
+    .details-display{
+        display: flex;
+        background: white;
+        box-shadow: 0 8px 20px #E5E5E5;
+        padding: 20px;
+        width: fit-content;
+        
+        img {
+            border-radius: 50%;
+            border-color: black;
+            border-style: double;
+            border-width: 2px;
+            width: 200px;
+            height: 200px;
+        }
+        .user-info {
+            margin-top: 5px;
+            margin-left: 20px;
+            h1 {
+                color: #333B3F;
+                font-size: 30px;
+                font-weight: 700;
+            }
+            .short-description {
+                color: #333B3F;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .experience-holder {
+                margin-left: 0px;
+                margin-top: 10px;
+                color: #333B3F;
+                font-size: 20px;
+                font-weight: 500; 
+
+                .exp-no {
+                    position: relative;
+                    top: 3px;
+                    color: #1ba94c;
+                    font-size: 30px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+            }
+
+            .skills-container {
+                
+                p {
+                    color: #333B3F;
+                    font-size: 15px;
+                    font-weight: 500;   
+                }
+
+                .skills-row {
+                    display: flex;
+
+                    .skill-pill {
+                        position: relative;
+                        top: -8px;
+                        text-align: center;
+                        background-color: #F4F6F8;
+                        padding: 3px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        margin: 2px;
+                        width: 100px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+        
+
+    }
+    
+}

@@ -1,5 +1,5 @@
 import {useState, useContext} from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -42,7 +42,7 @@ const SignIn = () => {
         .then(response => {console.log(response.data); setCurrentUser(response.data); localStorage.setItem("user_data",JSON.stringify(response.data));})   
         .catch(error => console.log(error))
         console.log((JSON.parse(localStorage.getItem("user_data"))).token)
-        navigate('/dashboard');
+        navigate('/userprofile');
         resetFormFields();
     };
 

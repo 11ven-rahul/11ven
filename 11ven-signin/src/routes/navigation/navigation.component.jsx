@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/PSC_Logo.svg'
@@ -10,11 +10,10 @@ const Navigation = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
 
-    const signOutHandler = async () => {
-        await localStorage.removeItem("user_data");
+    const signOutHandler = () => {
+        localStorage.removeItem("user_data");
         setCurrentUser(null);
       };
-
 
     return (
         <Fragment>
@@ -23,14 +22,14 @@ const Navigation = () => {
                     <Logo className='logo' /> 
                 </Link>
                 <div className='options'>
+                    <Link className='option' to='/dashboard'>Dashboard</Link>
                     <Link className='option' to='/userprofile'>Edit Profile</Link>
                     <Link className='option' to='/pricing'>Pricing</Link>
                     <Link className='option' to='/contact'>Contact Us</Link>
                 </div>
                 <div className='sign-in-container'>
-                {currentUser ? (
+                {localStorage.user_data || currentUser ? (
                     <span className='sign-out' onClick={signOutHandler}>
-                      
                       SIGN OUT
                     </span>
                   ) : (

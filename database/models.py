@@ -1,21 +1,6 @@
 from .db import db
 from flask_bcrypt import generate_password_hash, check_password_hash
 
-
-
-class User(db.Document):
-    displayName = db.StringField(required=False)
-    email = db.EmailField(required=False, unique=True)
-    password = db.StringField(required=False, min_length=6)
-
-    last_clicked_module = db.DictField(required=False)
-
-    def hash_password(self):
-        self.password = generate_password_hash(self.password).decode('utf8')
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
-
 class User_profile(db.Document):
     firstName = db.StringField(required=False)
     lastName = db.StringField(required=False)
@@ -47,6 +32,27 @@ class User_profile(db.Document):
 
     resumeUploadName = db.StringField(required=False)
     imageUploadName = db.StringField(required=False)
+    added_by = db.ReferenceField('User')
+    experience = db.FloatField(required=False)
+
+class User(db.Document):
+    displayName = db.StringField(required=False)
+    email = db.EmailField(required=False, unique=True)
+    password = db.StringField(required=False, min_length=6)
+
+    last_clicked_module = db.DictField(required=False)
+    user_profile = db.ReferenceField('User_profile')
+
+
+    def hash_password(self):
+        self.password = generate_password_hash(self.password).decode('utf8')
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
+
+
+
 
 class Contact_Us(db.Document):
     email = db.StringField(required=False)
